@@ -3,6 +3,7 @@
 #include <sys/socket.h>
 #include <bluetooth/bluetooth.h>
 #include <bluetooth/rfcomm.h>
+#include "sockettome.c"
 
 int main(int argc, char **argv)
 {
@@ -25,7 +26,7 @@ int main(int argc, char **argv)
     listen(s, 1);
 
     // accept one connection
-    client = accept(s, (struct sockaddr *)&rem_addr, &opt);
+    client = accept_connection(s);
 
     ba2str( &rem_addr.rc_bdaddr, buf );
     fprintf(stderr, "accepted connection from %s\n", buf);
