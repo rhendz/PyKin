@@ -1,0 +1,7 @@
+To start, you must first install the following labs:
+	
+	* https://github.com/richards-tech/RTIMULib2.git (IMU)
+
+	* (bluetooth)
+
+
