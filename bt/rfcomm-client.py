@@ -7,8 +7,12 @@ port = 1
 sock=bluetooth.BluetoothSocket( bluetooth.RFCOMM )
 sock.connect((bd_addr, port))
 
-sock.send("hello!!")
-data = sock.recv(1024)
-print "received [%s]" % data
+while 1:
+    msg = raw_input()
+
+    if msg == 'stop':
+        break
+
+    sock.send(msg)
 
 sock.close()
