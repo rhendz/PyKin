@@ -30,7 +30,7 @@ int main(int argc, char **argv)
           if (msg == "\n") break;
 
           printf("The length of the string is %ld\n", strlen(msg));
-          status = write(s, "hello!", strlen(msg));
+          // status = write(s, "hello!", strlen(msg));
         }
     }
 
