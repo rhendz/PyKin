@@ -32,8 +32,8 @@ int main(int argc, char **argv)
     memset(buf, 0, sizeof(buf));
 
     // read data from the client
-    bytes_read = read(client, buf, sizeof(buf));
-    if( bytes_read > 0 ) {
+    while (bytes_read = read(client, buf, sizeof(buf))) {
+    // if ( bytes_read > 0 ) {
         printf("received [%s]\n", buf);
     }
 
