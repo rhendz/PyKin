@@ -10,3 +10,6 @@ rfcomm-client: rfcomm-client.o
 
 rfcomm-server: rfcomm-server.o
 	$(CC) -o rfcomm-server rfcomm-server.o -lbluetooth
+
+clean:
+	rm *.o rfcomm-client rfcomm-server
