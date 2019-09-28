@@ -1,13 +1,34 @@
 <mat-toolbar>Application</mat-toolbar>
 <particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
 <div class="center">
-  <button mat-raised-button color="primary" [matMenuTriggerFor]="mobilityMenu">
-    <span>Mobility</span>
+  <button mat-raised-button color="primary" [matMenuTriggerFor]="ubMenu">
+    <span>Upper Body</span>
   </button>
 
-  <mat-menu #mobilityMenu="matMenu">
+  <mat-menu #ubMenu="matMenu">
     <button mat-menu-item>Elbow</button>
     <button mat-menu-item>Rotator Cuff</button>
+    <button mat-menu-item>Wrist</button>
+    <button mat-menu-item>Neck</button>
+  </mat-menu>
+
+  <button mat-raised-button color="primary" [matMenuTriggerFor]="lbMenu">
+    <span>Lower Body</span>
+  </button>
+
+  <mat-menu #lbMenu="matMenu">
+    <button mat-menu-item>Knee Joint</button>
+    <button mat-menu-item>Leg Lift</button>
+    <button mat-menu-item>Ankle</button>
+  </mat-menu>
+
+  <button mat-raised-button color="primary" [matMenuTriggerFor]="bMenu">
+    <span>Back</span>
+  </button>
+
+  <mat-menu #bMenu="matMenu">
+    <button mat-menu-item>Hip Twist</button>
+    <button mat-menu-item>Toe Touches</button>
   </mat-menu>
 
   <button mat-raised-button color="primary" [matMenuTriggerFor]="reactionMenu">
