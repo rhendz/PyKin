@@ -1,1 +1,21 @@
+<mat-toolbar>Application</mat-toolbar>
 <particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
+<div class="center">
+  <button mat-raised-button color="primary" [matMenuTriggerFor]="mobilityMenu">
+    <span>Mobility</span>
+  </button>
+
+  <mat-menu #mobilityMenu="matMenu">
+    <button mat-menu-item>Elbow</button>
+    <button mat-menu-item>Rotator Cuff</button>
+  </mat-menu>
+
+  <button mat-raised-button color="primary" [matMenuTriggerFor]="reactionMenu">
+    <span>Reaction</span>
+  </button>
+
+  <mat-menu #reactionMenu="matMenu">
+    <button mat-menu-item>Physical</button>
+    <button mat-menu-item>Sound</button>
+  </mat-menu>
+</div>
