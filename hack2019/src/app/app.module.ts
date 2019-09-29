@@ -13,6 +13,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { HomeComponent } from './home/home.component';
 import { TestComponent } from './test/test.component';
@@ -32,6 +34,8 @@ import { TestComponent } from './test/test.component';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    MatListModule,
+    MatDividerModule,
     ParticlesModule,
     HttpClientModule,
     BrowserAnimationsModule

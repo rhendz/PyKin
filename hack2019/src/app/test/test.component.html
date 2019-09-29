@@ -1,7 +1,31 @@
-<mat-toolbar>Application</mat-toolbar>
+<mat-toolbar>PyKin - {{testCase}}</mat-toolbar>
 <particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
 <div id="graph">
+  <mat-list>
+  <h1>Tracking</h1>
+  <mat-divider></mat-divider>
   <mat-progress-spinner [color]="color"
         [mode]="mode"
-        [value]="value"></mat-progress-spinner>
+        [value]="value"
+        [diameter]="diameter"></mat-progress-spinner>
+  </mat-list>
+  <mat-list>
+  <h1>Max Tracking</h1>
+  <mat-divider></mat-divider>
+  <mat-progress-spinner [color]="color_max"
+        [mode]="mode"
+        [value]="value_max"
+        [diameter]="diameter"></mat-progress-spinner>
+  </mat-list>
+  <mat-list>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <p class="mat-display-1">Val &nbsp; {{value | number : '1.2-2'}}&deg;</p>
+    <p class="mat-display-1">Max {{value_max | number : '1.2-2'}}&deg;</p>
+    <p class="mat-display-1">Min &nbsp;{{value_min | number : '1.2-2'}}&deg;</p>
+  </mat-list>
 </div>

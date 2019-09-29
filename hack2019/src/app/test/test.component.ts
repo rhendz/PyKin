@@ -12,8 +12,12 @@ export class TestComponent implements OnInit {
   testCase: string;
 
   color = 'primary';
+  color_max = 'warn';
   mode = 'determinate';
-  value = 50;
+  value = 0;
+  value_min = 100;
+  value_max = 0;
+  diameter = 250;
 
   myStyle: object = {};
   myParams: object = {};
@@ -25,7 +29,7 @@ export class TestComponent implements OnInit {
     this.testCase = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
     this.configureTest();
 
-    // let timerId = setInterval(() => this.subFunction(), 50);
+    let timerId = setInterval(() => this.subFunction(), 50);
   }
 
   ngOnInit() {
@@ -60,8 +64,19 @@ export class TestComponent implements OnInit {
 
   subFunction(): void {
     this.getJSON().subscribe(data => {
-      this.value = Math.abs(data["Pitch"]) / 180 * 100;
-      console.log(this.value);
+      if (this.testCase == "RotatorCuff" || this.testCase == "HipTwist") {
+        this.value = Math.abs(data["Yaw"]) / 180 * 100;
+        if (this.value_max < this.value) this.value_max = this.value;
+        if (this.value_min > this.value) this.value_min = this.value;
+      } else if (this.testCase == "SideLean") {
+        this.value = Math.abs(data["Roll"]) / 180 * 100;
+        if (this.value_max < this.value) this.value_max = this.value;
+        if (this.value_min > this.value) this.value_min = this.value;
+      } else {
+        this.value = Math.abs(data["Pitch"]) / 180 * 100;
+        if (this.value_max < this.value) this.value_max = this.value;
+        if (this.value_min > this.value) this.value_min = this.value;
+      }
     });
   }
 
