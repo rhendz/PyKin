@@ -2,6 +2,11 @@ To start, you must first install the following labs:
 	
 	* https://github.com/richards-tech/RTIMULib2.git (IMU)
 
-	* (bluetooth)
+	* Look up pyBlues library
+
+		-To install python-pip, python-dev, ipython, 
+		bluetooth libbluetooth-dev
+
+		-Then pip install pyBluez
 
 
