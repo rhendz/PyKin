@@ -2,6 +2,7 @@ import sys, getopt, bluetooth
 
 sys.path.append('.')
 import RTIMU
+import os
 import os.path
 import time
 import math
@@ -24,30 +25,29 @@ imu.setCompassEnable(True)
 
 poll_interval = imu.IMUGetPollInterval()
 
-server_sock = bluetooth.BluetoothSocket( bluetooth.RFCOMM )
+bd_addr = "34:E1:2D:DE:E0:85"
 
-port = 1
-server_sock.bind(("",port))
-server_sock.listen(1)
-
-client_sock,address = server_sock.accept()
+while True:
+    try:
+        os.system("bluetoothctl connect 34:E1:2D:DE:E0:85")
+        sock=bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+        sock.connect((bd_addr,2))
+        print "Passed!"
+        break
+    except:
+        print "Trying to connect..."
+        pass
 
 while True:
   
     if imu.IMURead():
-        print "Alive"
-    
+
         data = imu.getIMUData()
         fusionPose = data["fusionPose"]
        
-        s = ("r: %f p: %f y: %f" % (math.degrees(fusionPose[0]), math.degrees(fusionPose[1]), math.degrees(fusionPose[2])))
+        sock.send("r: %f p: %f y: %f" % (math.degrees(fusionPose[0]),
+            math.degrees(fusionPose[1]), math.degrees(fusionPose[2])))
 
-        print "About to print s"
-        print s
-        client_sock.send(s)
-    
-        #time.sleep(poll_interval*1.0/1000.0)
+        time.sleep(poll_interval*1.0/1000.0)
 
-print "All done"
-client_sock.close()
-server_sock.close()
+sock.close()
