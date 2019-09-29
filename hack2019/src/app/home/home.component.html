@@ -6,10 +6,10 @@
   </button>
 
   <mat-menu #ubMenu="matMenu">
-    <button mat-menu-item>Elbow</button>
-    <button mat-menu-item>Rotator Cuff</button>
-    <button mat-menu-item>Wrist</button>
-    <button mat-menu-item>Neck</button>
+    <button mat-menu-item (click)=generateTest($event)>Elbow</button>
+    <button mat-menu-item (click)=generateTest($event)>Rotator Cuff</button>
+    <button mat-menu-item (click)=generateTest($event)>Wrist</button>
+    <button mat-menu-item (click)=generateTest($event)>Neck</button>
   </mat-menu>
 
   <button mat-raised-button color="primary" [matMenuTriggerFor]="lbMenu">
@@ -17,9 +17,9 @@
   </button>
 
   <mat-menu #lbMenu="matMenu">
-    <button mat-menu-item>Knee Joint</button>
-    <button mat-menu-item>Leg Lift</button>
-    <button mat-menu-item>Ankle</button>
+    <button mat-menu-item (click)=generateTest($event)>Knee Joint</button>
+    <button mat-menu-item (click)=generateTest($event)>Leg Lift</button>
+    <button mat-menu-item (click)=generateTest($event)>Ankle</button>
   </mat-menu>
 
   <button mat-raised-button color="primary" [matMenuTriggerFor]="bMenu">
@@ -27,8 +27,8 @@
   </button>
 
   <mat-menu #bMenu="matMenu">
-    <button mat-menu-item>Hip Twist</button>
-    <button mat-menu-item>Toe Touches</button>
+    <button mat-menu-item (click)=generateTest($event)>Hip Twist</button>
+    <button mat-menu-item (click)=generateTest($event)>Toe Touches</button>
   </mat-menu>
 
   <button mat-raised-button color="primary" [matMenuTriggerFor]="reactionMenu">
@@ -36,7 +36,7 @@
   </button>
 
   <mat-menu #reactionMenu="matMenu">
-    <button mat-menu-item>Physical</button>
-    <button mat-menu-item>Sound</button>
+    <button mat-menu-item (click)=generateTest($event)>Physical</button>
+    <button mat-menu-item (click)=generateTest($event)>Sound</button>
   </mat-menu>
 </div>
