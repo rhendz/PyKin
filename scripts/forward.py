@@ -25,11 +25,20 @@ imu.setCompassEnable(True)
 
 poll_interval = imu.IMUGetPollInterval()
 
-bd_addr = "34:E1:2D:DE:E0:85"
+bd_addr = "A8:7D:12:04:61:C0"
 
+# Try to connect via Bluetooth
+while True:
+    ret = os.system("bluetoothctl connect ",bd_addr)
+   
+    if ret == 0:
+        break
+
+    time.sleep(10)
+
+# Try to connect to the server
 while True:
     try:
-        os.system("bluetoothctl connect 34:E1:2D:DE:E0:85")
         sock=bluetooth.BluetoothSocket(bluetooth.RFCOMM)
         sock.connect((bd_addr,2))
         print "Passed!"
@@ -47,7 +56,10 @@ while True:
        
         sock.send("r: %f p: %f y: %f" % (math.degrees(fusionPose[0]),
             math.degrees(fusionPose[1]), math.degrees(fusionPose[2])))
+        
+        print("r: %f p: %f y: %f" % (math.degrees(fusionPose[0]),
+            math.degrees(fusionPose[1]), math.degrees(fusionPose[2])))
 
-        time.sleep(poll_interval*1.0/1000.0)
+        time.sleep(.500)
 
 sock.close()
