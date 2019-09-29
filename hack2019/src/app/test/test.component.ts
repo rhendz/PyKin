@@ -25,7 +25,7 @@ export class TestComponent implements OnInit {
     this.testCase = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
     this.configureTest();
 
-    let timerId = setInterval(() => this.subFunction(), 50);
+    // let timerId = setInterval(() => this.subFunction(), 50);
   }
 
   ngOnInit() {
@@ -61,6 +61,7 @@ export class TestComponent implements OnInit {
   subFunction(): void {
     this.getJSON().subscribe(data => {
       this.value = Math.abs(data["Pitch"]) / 180 * 100;
+      console.log(this.value);
     });
   }
 
