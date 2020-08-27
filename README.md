@@ -17,4 +17,4 @@ Trying to set up two way communication via Bluetooth had been difficult and had 
 We are proud that we were able to finish a workable prototype and were able to begin the testing of a handful of limbs. This was a first for us in terms of soldering, Bluetooth programming, and the configuring of actual hardware. We were extremely proud that we are able to learn all this within the time frame of the Hackathon!
 
 ## What's next for PyKin
-We both have agreed that we wouldn't mind to continue the development of this project if we research more into the prospects it's actual usability in the medical field! 
+We both have agreed that we wouldn't mind to continue the development of this project if we research more into the prospects of its actual usability in the medical field! 
